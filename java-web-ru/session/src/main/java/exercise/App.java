@@ -1,0 +1,31 @@
+package exercise;
+
+import io.javalin.Javalin;
+import exercise.controller.SessionsController;
+import exercise.util.NamedRoutes;
+
+
+public final class App {
+
+    public static Javalin getApp() {
+
+        var app = Javalin.create(config -> {
+            config.plugins.enableDevLogging();
+        });
+
+        // BEGIN
+        app.get(NamedRoutes.loginPath(), SessionsController::loginForm);
+        app.post(NamedRoutes.loginPath(), SessionsController::login);
+        app.get(NamedRoutes.logoutPath(), SessionsController::logout);
+
+        app.get(NamedRoutes.rootPath(), SessionsController::root);
+        // END
+
+        return app;
+    }
+
+    public static void main(String[] args) {
+        Javalin app = getApp();
+        app.start(7070);
+    }
+}
