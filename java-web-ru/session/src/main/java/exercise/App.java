@@ -14,7 +14,7 @@ public final class App {
         });
 
         // BEGIN
-        app.get(NamedRoutes.loginPath(), SessionsController::loginForm);
+        app.get(NamedRoutes.buildSessionPath(), SessionsController::loginForm);
         app.post(NamedRoutes.loginPath(), SessionsController::login);
         app.get(NamedRoutes.logoutPath(), SessionsController::logout);
 

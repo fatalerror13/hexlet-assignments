@@ -4,7 +4,7 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
 plugins {
     id("com.github.ben-manes.versions") version "0.48.0"
-    application
+    id 'application'
     
     id("io.freefair.lombok") version "8.1.0"
 }
@@ -41,7 +41,7 @@ tasks.test {
     // https://technology.lastminute.com/junit5-kotlin-and-gradle-dsl/
     testLogging {
         exceptionFormat = TestExceptionFormat.FULL
-        events = mutableSetOf(TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent.SKIPPED)
+        events TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent.SKIPPED
         // showStackTraces = true
         // showCauses = true
         showStandardStreams = true

@@ -7,6 +7,6 @@
         <div>Hello, ${page.getName()}</div>
         <a href="${NamedRoutes.logoutPath()}">Выйти</a>
     @else
-        <a href="${NamedRoutes.loginPath()}">Войти</a>
+        <a href="${NamedRoutes.buildSessionPath()}">Войти</a>
     @endif
 `)
