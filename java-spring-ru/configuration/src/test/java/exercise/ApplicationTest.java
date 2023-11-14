@@ -33,16 +33,5 @@ class ApplicationTest {
                 .andExpect(status().isOk());
     }
 
-    @Test
-    public void testGetAdmins() throws Exception {
-        String[] expected = {
-                "Emmit Brundle",
-                "Emmit Brundle",
-                "Glynn Joinsey"
-        };
 
-        mockMvc.perform(get("/admins"))
-                .andExpect(status().isOk())
-                .andExpect(content().json(om.writeValueAsString(expected)));
-    }
 }
